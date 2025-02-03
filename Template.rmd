@@ -17,7 +17,7 @@ library(datasauRus)
 
 ### Exercise 1
 
-(1846 rows, 3 columns, the variables are dataset: indicates which dataset the data are from, x: x-values, and y: y-values )
+1846 rows, 3 columns, the variables are dataset: indicates which dataset the data are from, x: x-values, and y: y-values 
 
 ### Exercise 2
 
