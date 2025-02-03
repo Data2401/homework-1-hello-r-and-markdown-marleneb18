@@ -68,7 +68,11 @@ I'm some text, you should replace me with more meaningful text...
 
 ```
 
-```{r}
+```{r plot-circle, fig.height=3, fig.width=6}
+cirlce_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
+ggplot(data = cirlce_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 
 
 ```
