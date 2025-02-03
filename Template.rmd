@@ -2,7 +2,12 @@
 title: "Hello R"
 author: "Marlene Berrios"
 date: "Data 2401"
-output: html_document
+output: 
+  html_document: 
+    fig_width: 14
+    fig_height: 10
+    highlight: zenburn
+    theme: sandstone
 ---
 
 MAKE SURE YOU READ AND FOLLOW **ALL** INSTRUCTIONS ON THE INSTRUCTION DOCUMENT. 
@@ -22,7 +27,7 @@ library(datasauRus)
 ### Exercise 2
 
 
-First let's plot the data in the dino dataset:
+
 
 ```{r plot-dino, fig.height=3, fig.width=6}
 dino_data <- datasaurus_dozen %>%
@@ -31,7 +36,7 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 
-And next calculate the correlation between `x` and `y` in this dataset:
+
 
 ```{r cor-dino}
 dino_data %>%
@@ -40,7 +45,6 @@ dino_data %>%
 
 ### Exercise 3
 
-(Add code and narrative as needed. Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient. To finish, remember to clean up the narrative by removing these instructions.)
 
 
 
@@ -52,7 +56,7 @@ ggplot(data = star_data, mapping = aes(x = x, y = y)) +
 
 ```
 
-I'm some text, you should replace me with more meaningful text...
+
  
 ```
 
@@ -61,7 +65,6 @@ I'm some text, you should replace me with more meaningful text...
 
 ### Exercise 4
 
-(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
 
 ```
 
@@ -79,4 +82,15 @@ ggplot(data = cirlce_data, mapping = aes(x = x, y = y)) +
 
 ### Exercise 5
 
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, with the green +C.)
+```{r}
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
+ geom_point()+
+ facet_wrap(~ dataset, ncol = 3) + # facet the dataset variable, in 3 cols
+ theme(legend.position = "none")
+```
+```{r}
+ datasaurus_dozen %>%
+ group_by(dataset) %>%
+ summarize(r = cor(x, y))
+```
+
